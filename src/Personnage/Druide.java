@@ -1,6 +1,6 @@
 package Personnage;
 
-import java.until.Random;
+import java.util.Random;
 
 public class Druide {
 	private String nom;
@@ -17,6 +17,11 @@ public class Druide {
 				+ effetPotionMax + ".");
 
 	}
+	
+	public int nextInt(int effetPotionMax) {
+		return effetPotionMax;
+	}
+	
 	
 	public int  preparerPotion(Random random) {
 		Random random1 = new Random();

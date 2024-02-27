@@ -1,6 +1,6 @@
 package Personnage;
 
-import java.until.Random;
+import java.util.Random;
 
 public class Gaulois {
 	public Gaulois(String nom, int force) {

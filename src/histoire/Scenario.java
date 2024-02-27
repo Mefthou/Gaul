@@ -1,6 +1,6 @@
 package histoire;
 
-import java.until.Random;
+import java.util.Random;
 
 import Personnage.Gaulois;
 import Personnage.Romain;
