@@ -1,3 +1,3 @@
-# Gaulois2
-Gaulois2
+# Gaul
+Gaul
 
