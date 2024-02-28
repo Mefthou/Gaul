@@ -43,6 +43,7 @@ public class Gaulois {
 	public static void main(String[] args) {
 		Romain minus = new Romain("Minus",6);
 		Gaulois asterix = new Gaulois("Asterix", 8);
+		Gaulois obelix = new Gaulois("Obelix", 25);
 		Druide panoramix = new Druide("Panoramix",5,10);
 		Random random1 = new Random();
 		int forcePotion = panoramix.preparerPotion(random1);
