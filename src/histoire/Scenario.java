@@ -17,7 +17,7 @@ class Scenario {
 		Gaulois asterix = new Gaulois("Asterix", 8);
 		Random random1 = new Random();
 		panoramix.parler("Je vais aller préparer une petite potion...");
-		int forcePotion = panoramix.preparerPotion(random1);
+		int forcePotion = panoramix.preparerPotion();
 		panoramix.booster(obelix);
 		obelix.parler("Par Bélénos, ce n'est pas juste !");
 		asterix.boirePotion(forcePotion);

@@ -3,14 +3,18 @@ package Personnage;
 import java.util.Random;
 
 public class Gaulois {
+	private String nom;
+	private int force;
+	private int effetPotion = 1;
+	private int  nbtrophees;
+	private Equipement[] trophees = new Equipement[100];
+
+	
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 	}
 
-	private String nom;
-	private int force;
-	private int effetPotion = 1;
 
 	public String getNom() {
 		return nom;
@@ -20,15 +24,28 @@ public class Gaulois {
 		System.out.println(prendreParole()+"<<"+ texte +">>");
 	}
 	
-	private String prendreParole() {
+	/*private String prendreParole() {
 		return "Le gaulois " + nom + ":";
+	}*/
+	
+	private String prendreParole() {
+		return "Le gaulois " + nom + " : ";
 	}
 	
-	public void frapper(Romain romain) {
+	/*public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de "
 	          + romain.getNom());
 		romain.recevoirCoup((force / 3)*effetPotion);
+	}*/
+	
+	public void frapper(Romain romain) {
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		Equipement[] trophes = romain.recevoirCoup((force / 3) * effetPotion);
+		for (int i = 0; trophes != null && i < trophes.length; i++,nbtrophees++) {
+			this.trophees[nbtrophees] = trophes[i];
+		}
 	}
+
 	
     public void boirePotion(int forcePotion) {
     	effetPotion = forcePotion;
@@ -36,7 +53,7 @@ public class Gaulois {
 	}
 
 	
-	public String toString() {
+    public String toString() {
 		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPotion=" + effetPotion + "]";
 	}
 
@@ -46,7 +63,7 @@ public class Gaulois {
 		Gaulois obelix = new Gaulois("Obelix", 25);
 		Druide panoramix = new Druide("Panoramix",5,10);
 		Random random1 = new Random();
-		int forcePotion = panoramix.preparerPotion(random1);
+		int forcePotion = panoramix.preparerPotion();
        //	System.out.println(asterix); ca n'affiche pas le nom du nouveau gaulois !!
 		System.out.println(asterix.getNom());
 		asterix.parler("Bonjour !");
