@@ -8,10 +8,11 @@ public class Druide {
 	private int effetPotionMax;
 	private int forcePotion = 1;
 	
-	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
+	public Druide(String nom, int effetPotionMin, int effetPotionMax, int forcePotion) {
 		this.nom = nom;
 		this.effetPotionMin = effetPotionMin;
 		this.effetPotionMax = effetPotionMax;
+		this.forcePotion = forcePotion;
 		parler("Bonjour, je suis le druide " + nom
 				+ " et ma potion peut aller d'une force " + effetPotionMin + " à "
 				+ effetPotionMax + ".");
@@ -22,8 +23,25 @@ public class Druide {
 		return effetPotionMax;
 	}
 	
+	public int preparerPotion()
+	{
+		Random random = new Random();
+		
+		int forcePotion = random.nextInt(effetPotionMax - effetPotionMax + 1) + effetPotionMin;
+		
+		if (forcePotion > 7)
+		{
+			parler(" Je vais aller préparer une petite potion... " + forcePotion);
+		}
+		else
+		{
+			parler(" Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force " + forcePotion);
+		}
+		return forcePotion;
+	}
 	
-	public int  preparerPotion() {
+	
+	/*public int  preparerPotion() {
 		Random random1 = new Random();
 		
 		do {
@@ -42,10 +60,21 @@ public class Druide {
 		return forcePotion;
 		
 	}
+	*/
 	
-	public void booster(Gaulois gaulois) {
-		parler("Non, Obélix !... Tu n’auras pas de potion magique !");
+	public void booster(Gaulois gaulois)
+	{
+		if (gaulois.getNom().equals("Obélix"))
+		{
+			System.out.println(" Non, Obélix !... Tu n’auras pas de potion magique ! ");
+		}
+		else
+		{
+			int forcePotion = (int) (Math.random() * (effetPotionMax - effetPotionMin + 1) + effetPotionMin);
+            gaulois.boirePotion(forcePotion);
+		}
 	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -58,8 +87,8 @@ public class Druide {
 		return "Le druide " + nom + " : ";
 	}
 	public static void main(String[] args) {
-		Druide panoramix = new Druide("Panoramix",5,10);
-		Random random1 = new Random();
+		Druide panoramix = new Druide("Panoramix",5,10,1);
+
 		panoramix.preparerPotion();
 		
 	} 

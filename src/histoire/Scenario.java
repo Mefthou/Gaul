@@ -11,7 +11,7 @@ class Scenario {
 
 	public static void main(String[] args) {
 		
-		Druide panoramix = new Druide("Panoramix",5,10);
+		Druide panoramix = new Druide("Panoramix",5,10,1);
 		Romain minus = new Romain("Minus",-6);
 		Gaulois obelix = new Gaulois("Obelix", 25);
 		Gaulois asterix = new Gaulois("Asterix", 8);
