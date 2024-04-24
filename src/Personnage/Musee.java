@@ -23,5 +23,7 @@ public class Musee {
 				System.out.println("Le musee est plein, on ne peut pas mettre un autre equipement");
 			}
 		}
+		
+		
 
 }
